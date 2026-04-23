@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>About Us | Mary Dental Practice Windhoek</title>
+<meta name="description" content="Learn about Mary Dental Practice in Windhoek - our mission, values, and commitment to providing exceptional dental care in Wanaheda.">
+<link rel="canonical" href="https://marydentalwindhoek.com/about">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #E8C875;
+  --gold-light: #F5E5B8;
+  --gold-dark: #D4A843;
+  --gold-accent: #B8923A;
+  --white: #FFFFFF;
+  --off-white: #FAFAFA;
+  --cream: #FFF9F0;
+  --black: #1A1A1A;
+  --gray-dark: #4A4A4A;
+  --gray-mid: #888888;
+  --gray-light: #E5E5E5;
+  --ff-serif: 'Cormorant', serif;
+  --ff-sans: 'Inter', sans-serif;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-sans);
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-light);
+  transition: box-shadow 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.nav.scrolled {
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 85px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease);
+}
+
+.nav-logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gray-dark);
+  position: relative;
+  transition: color 0.3s var(--ease);
+  padding: 8px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s var(--ease);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-cta {
+  background: var(--gold);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s var(--ease);
+}
+
+.nav-cta:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-toggle span {
+  width: 28px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: all 0.3s var(--ease);
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 85px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s var(--ease);
+  }
+  
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .nav-container {
+    padding: 0 20px;
+  }
+}
+
+/* Page Header */
+.page-header {
+  margin-top: 85px;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-family: var(--ff-serif);
+  font-size: clamp(42px, 5vw, 56px);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.page-header p {
+  font-size: 18px;
+  color: var(--gray-dark);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* About Hero */
+.about-hero {
+  padding: 120px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-logo-box {
+  background: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 0;
+  height: 500px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content {
+  animation: fadeInUp 0.8s var(--ease-out);
+}
+
+.section-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray-dark);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 968px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .about-logo-box {
+    padding: 0;
+    height: 350px;
+  }
+}
+
+/* Mission & Values */
+.mission-values {
+  background: var(--off-white);
+  padding: 120px 40px;
+}
+
+.mission-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.value-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s var(--ease);
+  border: 1px solid var(--gray-light);
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+
+.value-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.value-icon i {
+  font-size: 28px;
+  color: var(--white);
+}
+
+.value-card h3 {
+  font-family: var(--ff-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.value-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray-dark);
+}
+
+@media (max-width: 968px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* Commitment Section */
+.commitment {
+  padding: 120px 40px;
+  background: var(--white);
+}
+
+.commitment-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.commitment-list {
+  list-style: none;
+  margin-top: 60px;
+  display: grid;
+  gap: 30px;
+}
+
+.commitment-item {
+  background: var(--cream);
+  padding: 40px;
+  border-radius: 12px;
+  border-left: 4px solid var(--gold);
+  text-align: left;
+  transition: all 0.3s var(--ease);
+}
+
+.commitment-item:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-md);
+}
+
+.commitment-item h3 {
+  font-family: var(--ff-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--gold-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.commitment-item p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray-dark);
+}
+
+.check-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  padding: 100px 40px;
+  text-align: center;
+  color: var(--white);
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.cta-section p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.95;
+}
+
+.btn {
+  padding: 16px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: var(--white);
+  color: var(--gold);
+}
+
+.btn-primary:hover {
+  background: var(--off-white);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 80px 40px 30px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.footer-logo {
+  margin-bottom: 24px;
+}
+
+.footer-logo img {
+  height: 60px;
+  width: auto;
+}
+
+.footer-about {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+  max-width: 350px;
+}
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer ul li {
+  margin-bottom: 12px;
+}
+
+.footer ul li a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  transition: color 0.3s var(--ease);
+}
+
+.footer ul li a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+@media (max-width: 968px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--ease-out);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpg" alt="Mary Dental Practice Logo" class="logo-img">
+    </a>
+    
+    <div class="mobile-toggle" id="mobileToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link active">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="team.html" class="nav-link">Our Team</a></li>
+      <li><a href="contact.html" class="nav-link nav-cta">Book Appointment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>About Mary Dental Practice</h1>
+  <p>Your trusted partner for comprehensive dental care in Windhoek</p>
+</div>
+
+<section class="about-hero">
+  <div class="about-hero-grid">
+    <div class="about-logo-box reveal">
+      <img src="Patient.jpg" alt="Happy patient at Mary Dental Practice">
+    </div>
+    
+    <div class="about-content">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Committed to Your Dental Health</h2>
+      <p class="about-text">
+        Mary Dental Practice was founded with a simple mission: to provide exceptional dental care in a warm, welcoming environment. Located in the heart of Wanaheda, Windhoek, we've been serving our community with dedication and compassion.
+      </p>
+      <p class="about-text">
+        Our practice combines cutting-edge dental technology with personalized patient care. We believe that every smile is unique, and we take the time to understand your individual needs and concerns. From routine checkups to advanced cosmetic procedures, we're here to help you achieve optimal oral health.
+      </p>
+      <p class="about-text">
+        At Mary Dental Practice, we don't just treat teeth—we care for people. Our team is committed to making your visit as comfortable and stress-free as possible, ensuring that you leave our clinic with a healthier, brighter smile.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="mission-values">
+  <div class="mission-container">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 60px;">
+      <div class="section-label">Our Values</div>
+      <h2 class="section-title">What Drives Us</h2>
+      <p style="font-size: 18px; color: var(--gray-dark); line-height: 1.8;">
+        Our core values guide everything we do, from the way we treat our patients to how we operate our practice.
+      </p>
+    </div>
+    
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="fas fa-heart"></i></div>
+        <h3>Patient-Centered Care</h3>
+        <p>Your comfort, health, and satisfaction are our top priorities. We listen to your concerns and tailor our treatments to meet your unique needs.</p>
+      </div>
+      
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="fas fa-award"></i></div>
+        <h3>Excellence</h3>
+        <p>We maintain the highest standards of dental care through continuous education, advanced technology, and meticulous attention to detail.</p>
+      </div>
+      
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="fas fa-handshake"></i></div>
+        <h3>Integrity</h3>
+        <p>We believe in honest, transparent communication. You'll always understand your treatment options and costs upfront.</p>
+      </div>
+      
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Innovation</h3>
+        <p>We invest in the latest dental technology and techniques to provide you with the most effective, comfortable treatments available.</p>
+      </div>
+      
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
+        <h3>Compassion</h3>
+        <p>We understand dental anxiety. Our gentle approach and caring staff ensure you feel relaxed and supported throughout your visit.</p>
+      </div>
+      
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="fas fa-users"></i></div>
+        <h3>Community</h3>
+        <p>As a local practice, we're proud to serve Windhoek. We're committed to improving the oral health of our community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="commitment">
+  <div class="commitment-container">
+    <div class="section-label">Our Commitment</div>
+    <h2 class="section-title">What You Can Expect</h2>
+    <p style="font-size: 18px; color: var(--gray-dark); line-height: 1.8; max-width: 700px; margin: 0 auto;">
+      When you choose Mary Dental Practice, you're choosing a dental partner who genuinely cares about your wellbeing.
+    </p>
+    
+    <ul class="commitment-list">
+      <li class="commitment-item reveal">
+        <h3><span class="check-icon">✓</span> Personalized Treatment Plans</h3>
+        <p>We take the time to understand your oral health goals and create customized treatment plans that work for your lifestyle and budget.</p>
+      </li>
+      
+      <li class="commitment-item reveal">
+        <h3><span class="check-icon">✓</span> Modern, Comfortable Facility</h3>
+        <p>Our clinic features state-of-the-art equipment in a clean, welcoming environment designed to put you at ease.</p>
+      </li>
+      
+      <li class="commitment-item reveal">
+        <h3><span class="check-icon">✓</span> Comprehensive Care</h3>
+        <p>From preventive care to advanced restorative and cosmetic procedures, we offer a full range of dental services under one roof.</p>
+      </li>
+      
+      <li class="commitment-item reveal">
+        <h3><span class="check-icon">✓</span> Flexible Scheduling</h3>
+        <p>We offer convenient appointment times, including early mornings and Saturdays, to accommodate your busy schedule.</p>
+      </li>
+      
+      <li class="commitment-item reveal">
+        <h3><span class="check-icon">✓</span> Patient Education</h3>
+        <p>We empower you with knowledge about your oral health, explaining procedures clearly and answering all your questions.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-container">
+    <h2>Experience the Mary Dental Difference</h2>
+    <p>Join our family of satisfied patients and discover what exceptional dental care truly means.</p>
+    <a href="contact.html" class="btn btn-primary">Book Your Appointment</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-logo">
+        <img src="logo.jpg" alt="Mary Dental Practice">
+      </div>
+      <p class="footer-about">
+        Mary Dental Practice provides gentle, modern dental care in Wanaheda, Windhoek. Our experienced team is dedicated to helping you achieve and maintain a healthy, beautiful smile.
+      </p>
+    </div>
+    
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#general">General Dentistry</a></li>
+        <li><a href="services.html#cosmetic">Cosmetic Dentistry</a></li>
+        <li><a href="services.html#restorative">Restorative Care</a></li>
+        <li><a href="services.html#preventive">Preventive Care</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4>Contact Info</h4>
+      <ul>
+        <li>Wanaheda, Windhoek</li>
+        <li>Namibia</li>
+        <li><a href="tel:+26461123456">+264 61 123 456</a></li>
+        <li><a href="mailto:info@marydental.com">info@marydental.com</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2026 Mary Dental Practice. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+
+mobileToggle.addEventListener('click', function() {
+  navLinks.classList.toggle('active');
+});
+
+const reveals = document.querySelectorAll('.reveal');
+
+function checkReveal() {
+  reveals.forEach(reveal => {
+    const windowHeight = window.innerHeight;
+    const elementTop = reveal.getBoundingClientRect().top;
+    const elementVisible = 150;
+    
+    if (elementTop < windowHeight - elementVisible) {
+      reveal.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkReveal);
+checkReveal();
+</script>
+
+</body>
+</html>
